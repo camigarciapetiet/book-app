@@ -12,7 +12,8 @@
   word-spacing: 8%;
 }
 
-.book-container {
+.books-container {
   height: 179px;
-  background-color: beige;
+  display: flex;
+  flex-direction: row;
 }
