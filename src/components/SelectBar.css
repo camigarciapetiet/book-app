@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.select-container {
+  height: 40px;
+  width: 450px;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 23px;
+  background-color: rgb(25, 82, 161, 0.4);
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-option {
+  height: 30px;
+  width: 145px;
+  border-radius: 50px;
+  border: 0;
+  background-color: rgb(25, 82, 161, 0);
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 100;
+  color: #353535;
+}
+
+.select-option:focus {
+  background-color: rgb(236, 244, 255, 0.6);
+}

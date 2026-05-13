@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.book-section {
+  height: 234px;
+  margin: 0 45px 0 45px;
+}
+.section-title {
+  width: 305px;
+  font-size: 20px;
+  font-family: "Inter";
+  font-weight: 400;
+  word-spacing: 8%;
+}
+
+.book-container {
+  height: 179px;
+  background-color: beige;
+}
