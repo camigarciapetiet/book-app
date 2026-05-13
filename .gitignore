@@ -1,3 +1,12 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+build
+*.local
+
 # Logs
 logs
 *.log
@@ -7,18 +16,39 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment (secrets; keep .env.example in repo if you add one)
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite / tooling caches
+.vite
+.cache
+
+# Test & coverage
+coverage
+
+# Linters / formatters
+.eslintcache
+.prettiercache
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Optional deploy / hosting (uncomment if you use them)
+# .vercel
+# .netlify
