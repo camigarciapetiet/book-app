@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.login-card {
+  width: 495px;
+  height: 508px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 4px solid #1952a1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  background-color: #1952a1;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 34px;
+}
+.icon img {
+  height: 19.2px;
+  width: 19.2px;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.login-title {
+  height: 34px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #5e5e5e;
+  text-align: center;
+  margin: 12px 0 0 0;
+}
+
+.login-subtitle {
+  height: 30px;
+  font-size: 14px;
+  color: #5e5e5e;
+  text-align: center;
+  margin: 0 0 0 0;
+}
+
+.login-btn {
+  width: 415px;
+  height: 44px;
+  font-size: 20px;
+  font-family: "Inter";
+  font-weight: 600;
+  color: #fff;
+  background-color: #1952a1;
+  border-radius: 8px;
+  border: solid #1952a1;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 36px;
+}
+
+.login-btn:hover {
+  background-color: #144488;
+  color: #cbcbcb;
+}
+
+.newaccount-btn {
+  height: 24px;
+  color: #349c1a;
+  font-size: 14px;
+  margin: 13px 0 0 0;
+}

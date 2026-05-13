@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 415px;
+  align-items: flex-start;
+  margin-top: 18px;
+}
+
+.input-container label {
+  height: 24px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5e5e5e;
+}
+
+.input-wrapper {
+  width: 415px;
+  height: 44px;
+  margin-top: 9px;
+  align-self: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border: 2px solid #5e5e5e;
+  width: 100%;
+  height: 100%;
+  font-family: "Inter";
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  height: 20px;
+  width: 20px;
+}

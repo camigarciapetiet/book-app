@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalnia&display=swap");
+
+body {
+  margin: 0;
+}
+
+.header-container {
+  background-color: #eaeef9;
+  height: 92px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+
+.menu-icon {
+  height: 32px;
+  width: 32px;
+  margin-left: 26px;
+}
+
+.header-title {
+  color: #000;
+  font-size: 48px;
+  height: 65px;
+  width: 220px;
+  font-family: "Kalnia";
+  font-weight: 400;
+}
+
+.right-header {
+  display: flex;
+  flex-direction: row;
+  width: 106px;
+  justify-content: space-between;
+  margin-right: 26px;
+}
+
+.user-container {
+  background-color: #1952a1;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-icon {
+  height: 34px;
+  width: 34px;
+}
