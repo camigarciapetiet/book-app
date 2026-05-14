@@ -1,8 +1,11 @@
 import { Header } from "../components/Header";
 import { SelectBar } from "../components/SelectBar";
 import { BookSection } from "../components/BookSection";
-
+import { BookCard } from "../components/BookCard";
 import "./Home.css";
+import { useState } from "react";
+
+export type Book = { name: string; author: string };
 
 export function Home() {
   const bestSellers = [
@@ -20,12 +23,26 @@ export function Home() {
     { name: "Ready Player One", author: "Ernest Cline" },
     { name: "Jurassic Park", author: "Michael Crichton" },
   ];
+
+  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+
   return (
-    <>
+    <div className="home-page">
       <Header />
       <SelectBar />
-      <BookSection title="Best Sellers" books={bestSellers} />
-      <BookSection title="Action" books={actionBooks} />
-    </>
+      <BookSection
+        title="Best Sellers"
+        books={bestSellers}
+        onSelectBook={setSelectedBook}
+      />
+      <BookSection
+        title="Action"
+        books={actionBooks}
+        onSelectBook={setSelectedBook}
+      />
+      {selectedBook && (
+        <BookCard selected={selectedBook} onClose={setSelectedBook} />
+      )}
+    </div>
   );
 }

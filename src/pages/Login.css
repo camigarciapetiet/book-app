@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalnia&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-body {
+
+.login-page {
   background-color: #eaeef9;
   font-family: "Inter";
+  height: 100vh;
+  width: 100vw;
 }
 .login-container {
   min-height: 100vh;
