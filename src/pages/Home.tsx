@@ -4,6 +4,7 @@ import { BookSection } from "../components/BookSection";
 import { BookCard } from "../components/BookCard";
 import "./Home.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export type Book = { name: string; author: string };
 
@@ -26,9 +27,14 @@ export function Home() {
 
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/");
+  };
+
   return (
     <div className="home-page">
-      <Header />
+      <Header onLogout={handleLogout} />
       <SelectBar />
       <BookSection
         title="Best Sellers"

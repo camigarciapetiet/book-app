@@ -26,6 +26,6 @@
   color: #353535;
 }
 
-.select-option:focus {
+.select-option.active {
   background-color: rgb(236, 244, 255, 0.6);
 }
