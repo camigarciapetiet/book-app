@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.book-container {
+  height: 179px;
+  width: 131px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.book-img {
+  height: 150px;
+  width: 131px;
+  background-color: grey;
+  margin: 0 0 0 0;
+}
+
+.book-name {
+  height: 19px;
+  width: 131px;
+  font-size: 14px;
+  margin: 10px 0 0 0;
+  font-family: "Inter";
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

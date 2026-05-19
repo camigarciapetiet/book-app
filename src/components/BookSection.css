@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+.book-section {
+  height: 234px;
+  margin: 0 45px 0 45px;
+}
+
+.section-title {
+  width: 305px;
+  font-size: 20px;
+  font-family: "Inter";
+  font-weight: 400;
+  word-spacing: 8%;
+}
+
+.books-wrapper {
+  position: relative;
+}
+
+.books-container {
+  height: 179px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.books-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}

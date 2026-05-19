@@ -3,16 +3,20 @@ import user from "../assets/user.svg";
 import logout from "../assets/logout.svg";
 import "./Header.css";
 
-export function Header() {
+type Props = {
+  onLogout: () => void;
+};
+
+export function Header({ onLogout }: Props) {
   return (
     <div className="header-container">
-      <img src={menu} alt="menu-icon" />
+      <img src={menu} alt="menu-icon" className="menu-icon" />
       <h1 className="header-title">BookApp</h1>
       <div className="right-header">
         <div className="user-container">
           <img src={user} alt="user-icon" />
         </div>
-        <img src={logout} alt="logout-icon" />
+        <img src={logout} alt="logout-icon" onClick={onLogout} />
       </div>
     </div>
   );
