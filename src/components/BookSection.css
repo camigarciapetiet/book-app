@@ -16,4 +16,6 @@
   height: 179px;
   display: flex;
   flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }

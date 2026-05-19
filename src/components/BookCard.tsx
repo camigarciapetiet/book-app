@@ -17,7 +17,7 @@ export function BookCard({ selected, onClose }: Props) {
             <img src={close} alt="close" />
           </button>
           <div className="card-header">
-            <div className="book-img"></div>
+            <img className="book-img-overlay" src={selected.image}></img>
             <p className="book-title">{selected.name}</p>
             <p className="book-author">{selected.author}</p>
             <div className="book-rating">
