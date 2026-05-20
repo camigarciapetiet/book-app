@@ -1,29 +1,32 @@
 import { useState } from "react";
 import "./SelectBar.css";
 
-export function SelectBar() {
-  const [selected, setSelected] = useState<string>("trending");
+type Props = {
+  selected: String;
+  onSelect: (s: String) => void;
+};
 
+export function SelectBar({ selected, onSelect }: Props) {
   return (
     <>
       <div className="select-container">
         <button
           className={`select-option ${selected === "recommended" ? "active" : ""}`}
-          onClick={() => setSelected("recommended")}
+          onClick={() => onSelect("recommended")}
         >
           Recommended
         </button>
         <button
           className={`select-option ${selected === "trending" ? "active" : ""}`}
-          onClick={() => setSelected("trending")}
+          onClick={() => onSelect("trending")}
         >
           Trending
         </button>
         <button
-          className={`select-option ${selected === "favourites" ? "active" : ""}`}
-          onClick={() => setSelected("favourites")}
+          className={`select-option ${selected === "favorites" ? "active" : ""}`}
+          onClick={() => onSelect("favorites")}
         >
-          Your Favourites
+          Your favorites
         </button>
       </div>
     </>

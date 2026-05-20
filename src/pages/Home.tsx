@@ -27,8 +27,8 @@ export function Home() {
     );
     const data = await res.json();
 
-    const books = data.docs.slice(0, limit).map((doc: any, index: number) => ({
-      id: index,
+    const books = data.docs.slice(0, limit).map((doc: any) => ({
+      id: doc.key,
       name: doc.title,
       author: doc.author_name?.[0] || "Unknown",
       image: doc.cover_i
@@ -49,6 +49,23 @@ export function Home() {
   }, []);
 
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [selectedTab, setSelectedTab] = useState<String>("trending");
+  const [favoriteBooks, setFavoriteBooks] = useState<Book[]>([]);
+
+  const toggleTab = (tab: String) => {
+    setSelectedTab(tab);
+  };
+
+  const handleFavorite = (book: Book) => {
+    setFavoriteBooks((prev) => {
+      const exists = prev.some((f) => f.id === book.id);
+      if (exists) {
+        return favoriteBooks.filter((f) => f.id !== book.id);
+      } else {
+        return [...prev, book];
+      }
+    });
+  };
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -58,34 +75,52 @@ export function Home() {
   return (
     <div className="home-page">
       <Header onLogout={handleLogout} />
-      <SelectBar />
-      <BookSection
-        title="Best Sellers"
-        books={bestsellerBooks}
-        onSelectBook={setSelectedBook}
-      />
-      <BookSection
-        title="Action"
-        books={actionBooks}
-        onSelectBook={setSelectedBook}
-      />
-      <BookSection
-        title="Romance"
-        books={romanceBooks}
-        onSelectBook={setSelectedBook}
-      />
-      <BookSection
-        title="Fantasy"
-        books={fantasyBooks}
-        onSelectBook={setSelectedBook}
-      />
-      <BookSection
-        title="Sci-Fi"
-        books={sciFiBooks}
-        onSelectBook={setSelectedBook}
-      />
+      <SelectBar selected={selectedTab} onSelect={toggleTab} />
+      {selectedTab === "trending" && (
+        <div>
+          <BookSection
+            title="Best Sellers"
+            books={bestsellerBooks}
+            onSelectBook={setSelectedBook}
+          />
+          <BookSection
+            title="Action"
+            books={actionBooks}
+            onSelectBook={setSelectedBook}
+          />
+          <BookSection
+            title="Romance"
+            books={romanceBooks}
+            onSelectBook={setSelectedBook}
+          />
+          <BookSection
+            title="Fantasy"
+            books={fantasyBooks}
+            onSelectBook={setSelectedBook}
+          />
+          <BookSection
+            title="Sci-Fi"
+            books={sciFiBooks}
+            onSelectBook={setSelectedBook}
+          />
+        </div>
+      )}
+      {selectedTab === "favorites" && (
+        <div>
+          <BookSection
+            title="Marked as favorite:"
+            books={favoriteBooks}
+            onSelectBook={setSelectedBook}
+          />
+        </div>
+      )}
       {selectedBook && (
-        <BookCard selected={selectedBook} onClose={setSelectedBook} />
+        <BookCard
+          selected={selectedBook}
+          onClose={setSelectedBook}
+          onFavorite={handleFavorite}
+          isFavorite={favoriteBooks.some((b) => b.id === selectedBook?.id)}
+        />
       )}
     </div>
   );

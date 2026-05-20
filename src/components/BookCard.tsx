@@ -1,18 +1,32 @@
 import "./BookCard.css";
 import star from "../assets/star.svg";
 import close from "../assets/close.svg";
+import heart from "../assets/heart.svg";
+import redheart from "../assets/red-heart.svg";
 import { Book } from "../pages/Home";
 
 type Props = {
   selected: Book;
   onClose: (close: any) => void;
+  onFavorite: (book: Book) => void;
+  isFavorite: boolean;
 };
 
-export function BookCard({ selected, onClose }: Props) {
+export function BookCard({ selected, onClose, onFavorite, isFavorite }: Props) {
   return (
     <>
       <div className="overlay">
         <div className="card-container">
+          <div
+            className={isFavorite ? "favorite-btn active" : "favorite-btn"}
+            onClick={() => onFavorite(selected)}
+          >
+            <img
+              src={isFavorite ? redheart : heart}
+              alt="favorite"
+              className="heart-img"
+            />
+          </div>
           <button className="close-btn" onClick={() => onClose(null)}>
             <img src={close} alt="close" />
           </button>
