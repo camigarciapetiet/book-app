@@ -15,22 +15,6 @@ export type Book = {
 };
 
 export function Home() {
-  /*const bestSellers = [
-    { name: "The Midnight Library", author: "Matt Haig" },
-    { name: "Atomic Habits", author: "James Clear" },
-    { name: "It Ends with Us", author: "Colleen Hoover" },
-    { name: "The Silent Patient", author: "Alex Michaelides" },
-    { name: "Where the Crawdads Sing", author: "Delia Owens" },
-  ];*/
-  /*
-  const actionBooks = [
-    { name: "The Hunger Games", author: "Suzanne Collins" },
-    { name: "Divergent", author: "Veronica Roth" },
-    { name: "The Maze Runner", author: "James Dashner" },
-    { name: "Ready Player One", author: "Ernest Cline" },
-    { name: "Jurassic Park", author: "Michael Crichton" },
-  ];*/
-
   const [sciFiBooks, setSciFiBooks] = useState<Book[] | null>(null);
   const [actionBooks, setActionBooks] = useState<Book[] | null>(null);
   const [romanceBooks, setRomanceBooks] = useState<Book[] | null>(null);
@@ -93,6 +77,11 @@ export function Home() {
       <BookSection
         title="Fantasy"
         books={fantasyBooks}
+        onSelectBook={setSelectedBook}
+      />
+      <BookSection
+        title="Sci-Fi"
+        books={sciFiBooks}
         onSelectBook={setSelectedBook}
       />
       {selectedBook && (

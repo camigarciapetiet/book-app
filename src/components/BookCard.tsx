@@ -29,7 +29,7 @@ export function BookCard({ selected, onClose }: Props) {
             </div>
           </div>
           <div className="card-content">
-            <p className="content-title">Description</p>
+            <p className="content-title"></p>
           </div>
         </div>
       </div>
