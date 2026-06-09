@@ -1,0 +1,9 @@
+.register-page {
+    background-color: #eaeef9;
+    font-family: "Inter";
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

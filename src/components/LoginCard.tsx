@@ -5,9 +5,8 @@ import "./LoginCard.css";
 import { useNavigate } from "react-router-dom";
 
 export function LoginCard() {
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPssword, setShowPassword] = useState<boolean>(false);
+  const [mail, setMail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleMailInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -54,12 +53,14 @@ export function LoginCard() {
           label="Email"
           placeholder="example@mail.com"
           type="mail"
+          value={mail}
           onChange={handleMailInput}
         />
         <Input
           label="Password"
           placeholder="*********"
           type="password"
+          value={password}
           onChange={handlePasswordInput}
         />
         <button className="login-btn" type="submit">
@@ -67,7 +68,7 @@ export function LoginCard() {
         </button>
       </form>
 
-      <p className="newaccount-btn">Create new account</p>
+      <p className="newaccount-btn" onClick={()=>navigate("/register")}>Create new account</p>
     </div>
   );
 }
