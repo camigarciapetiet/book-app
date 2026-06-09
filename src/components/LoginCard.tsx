@@ -3,11 +3,12 @@ import { Input } from "./Input";
 import React, { useState } from "react";
 import "./LoginCard.css";
 import { useNavigate } from "react-router-dom";
+import { ErrorModal } from "./ErrorModal";
 
 export function LoginCard() {
   const [mail, setMail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const [error, setError] = useState<string | null>(null);
   const handleMailInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -24,14 +25,14 @@ export function LoginCard() {
     e.preventDefault();
 
     if (!mail || !password) {
-      alert("Complete all fields");
+      setError("Complete all fields");
       return;
     }
 
     if (mail === "test@gmail.com" && password === "Test1234") {
       navigate("/home");
     } else {
-      alert("Wrong credentials");
+      setError("Wrong credentials");
     }
   };
 
@@ -69,6 +70,7 @@ export function LoginCard() {
       </form>
 
       <p className="newaccount-btn" onClick={()=>navigate("/register")}>Create new account</p>
+      {error && <ErrorModal message={error} handleClose={() => setError(null)} />}
     </div>
   );
 }

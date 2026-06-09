@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input } from "./Input";
 import "./RegisterCard.css";
 import { useNavigate } from "react-router-dom";
+import { ErrorModal } from "./ErrorModal";
 
 export function RegisterCard() {
     let [name, setName] = useState<string>("");
@@ -9,7 +10,9 @@ export function RegisterCard() {
     let [password, setPassword] = useState<string>("");
     let [confirmPassword, setConfirmPassword] = useState<string>("");
     const navigate = useNavigate();
-
+    const [error, setError] = useState<string | null>(null);
+    
+    
     const handleNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
     }
@@ -28,12 +31,12 @@ export function RegisterCard() {
     
     const handleRegister = () => {
         if (!name || !email || !password || !confirmPassword) {
-            alert("Complete all fields");
+            setError("Complete all fields");
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match");
+            setError("Passwords do not match");
             return;
         }
 
@@ -49,6 +52,7 @@ export function RegisterCard() {
             <Input label="Password" placeholder="Password" type="password" value={password} onChange={handlePasswordInput} />
             <Input label="Confirm Password" placeholder="Confirm Password" type="password" value={confirmPassword} onChange={handleConfirmPasswordInput} />
             <button className="register-btn" type="submit" onClick={handleRegister}>Register</button>
+            {error && <ErrorModal message={error} handleClose={() => setError(null)} />}
         </div>
     )
 }
