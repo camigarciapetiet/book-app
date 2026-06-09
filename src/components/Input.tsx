@@ -7,10 +7,11 @@ type Props = {
   label: string;
   placeholder: string;
   type?: string;
+  value: string;
   onChange: (e: any) => void;
 };
 
-export function Input({ label, placeholder, type = "text", onChange }: Props) {
+export function Input({ label, placeholder, type = "text", value, onChange }: Props) {
   const [showPassword, setShowPassword] = useState(false);
 
   const isPassword = type === "password";
@@ -22,6 +23,7 @@ export function Input({ label, placeholder, type = "text", onChange }: Props) {
         <input
           type={showPassword ? "text" : type}
           placeholder={placeholder}
+          value={value}
           onChange={onChange}
         ></input>
         {isPassword && (
