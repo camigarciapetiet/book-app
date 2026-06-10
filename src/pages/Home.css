@@ -1,5 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
 .home-page {
   background-color: white;
   height: 100vh;
   width: 100vw;
 }
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.loading-text {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Inter";
+  color: #303030;
+} 

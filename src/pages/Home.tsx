@@ -20,6 +20,7 @@ export function Home() {
   const [romanceBooks, setRomanceBooks] = useState<Book[] | null>(null);
   const [bestsellerBooks, setBestsellerBooks] = useState<Book[] | null>(null);
   const [fantasyBooks, setFantasyBooks] = useState<Book[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function fetchBookCategory(category: string, limit: number) {
     const res = await fetch(
@@ -41,11 +42,28 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetchBookCategory("bestseller", 10).then(setBestsellerBooks);
-    fetchBookCategory("science fiction", 10).then(setSciFiBooks);
-    fetchBookCategory("action", 10).then(setActionBooks);
-    fetchBookCategory("romance", 10).then(setRomanceBooks);
-    fetchBookCategory("fantasy", 10).then(setFantasyBooks);
+    async function fetchAllBooks() {
+      try {
+          setLoading(true);
+          const [bestsellerBooks, sciFiBooks, actionBooks, romanceBooks, fantasyBooks] = await Promise.all([
+            fetchBookCategory("bestseller", 10),
+            fetchBookCategory("science fiction", 10),
+            fetchBookCategory("action", 10),
+            fetchBookCategory("romance", 10),
+            fetchBookCategory("fantasy", 10),
+          ]);
+          setBestsellerBooks(bestsellerBooks);
+          setSciFiBooks(sciFiBooks);
+          setActionBooks(actionBooks);
+          setRomanceBooks(romanceBooks);
+          setFantasyBooks(fantasyBooks);
+        } catch (error) {
+        console.error(error);
+        } finally {
+        setLoading(false);
+        }
+      }
+    fetchAllBooks();
   }, []);
 
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -114,6 +132,9 @@ export function Home() {
           />
         </div>
       )}
+      {loading && <div className="loading-container">
+        <p className="loading-text">Loading...</p>
+      </div>}
       {selectedBook && (
         <BookCard
           selected={selectedBook}
