@@ -26,7 +26,7 @@ export function RegisterCard() {
         setConfirmPassword(e.target.value);
     }
     
-    const handleRegister = () => {
+    const handleRegister = async () => {
         if (!name || !email || !password || !confirmPassword) {
             alert("Complete all fields");
             return;
@@ -37,7 +37,20 @@ export function RegisterCard() {
             return;
         }
 
-        navigate("/");
+        const response = await fetch("http://localhost:3000/api/auth/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: name, email: email, password: password }),
+        });
+        const data = await response.json();
+        console.log(data);
+         if(response.ok) {
+            navigate("/");
+         } else {
+            alert("Failed to register");
+         }
     }
 
     return (

@@ -20,7 +20,7 @@ export function LoginCard() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async(e: any) => {
     e.preventDefault();
 
     if (!mail || !password) {
@@ -28,11 +28,21 @@ export function LoginCard() {
       return;
     }
 
-    if (mail === "test@gmail.com" && password === "Test1234") {
-      navigate("/home");
-    } else {
-      alert("Wrong credentials");
-    }
+   const response = await fetch("http://localhost:3000/api/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: mail, password: password }),
+   });
+   const data = await response.json();
+   console.log(data);
+
+   if (response.ok) {
+    navigate("/home");
+   } else {
+    alert("Wrong credentials");
+   }
   };
 
   const navigate = useNavigate();
